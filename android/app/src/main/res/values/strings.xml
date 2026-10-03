@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">VoltCraft</string>
+    <string name="title_activity_main">VoltCraft</string>
+    <string name="package_name">com.samzidan.voltcraft</string>
+    <string name="custom_url_scheme">com.samzidan.voltcraft</string>
+</resources>

@@ -1,0 +1,11 @@
+{
+  "appId": "com.samzidan.voltcraft",
+  "appName": "VoltCraft",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}
