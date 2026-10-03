@@ -1,0 +1,6 @@
+{
+  "name": "VoltCraft: Power, Generators & PCB Repair Lab",
+  "description": "Comprehensive electrical engineering, generator mechanics, and PCB electronics repair intelligence hub with interactive diagnostics, pro hacks, calculators, quizzes, and simulation game.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
