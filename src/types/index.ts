@@ -6,6 +6,7 @@ export type NavTab =
   | 'diagnostics'
   | 'hacks'
   | 'probes'
+  | 'components'
   | 'calculators'
   | 'reference'
   | 'quiz'
@@ -94,6 +95,69 @@ export interface ProbeGuideItem {
 }
 
 export type MultimeterMode = 'DCV' | 'ACV' | 'RESISTANCE' | 'DIODE' | 'CONTINUITY';
+
+/* ============================================================
+   Component Encyclopedia — the reference core of the app.
+   One entry per component family: what it is, how it fails in the
+   field, how you prove that failure at the bench, and what to
+   replace it with.
+   ============================================================ */
+
+export type ComponentFamily =
+  | 'passive'
+  | 'semiconductor'
+  | 'magnetic'
+  | 'electromechanical'
+  | 'protection'
+  | 'power'
+  | 'optoelectronic'
+  | 'connector';
+
+export interface FailureMode {
+  /** What the technician observes on the bench */
+  symptom: string;
+  /** The physical/silicon mechanism behind it */
+  mechanism: string;
+  /** How common this failure is in the field */
+  frequency: 'very_common' | 'common' | 'occasional' | 'rare';
+}
+
+export interface ComponentTest {
+  /** What you are measuring, e.g. "Diode drop across body" */
+  name: string;
+  /** Instrument to use */
+  instrument: string;
+  /** Meter setting / range to select */
+  setup: string;
+  /** The reading that means GOOD */
+  goodReading: string;
+  /** The reading that means BAD — and what it indicates */
+  badReading: string;
+  /** Optional: do this with power removed / in-circuit caveats */
+  caution?: string;
+}
+
+export interface ComponentEntry {
+  id: string;
+  name: string;
+  family: ComponentFamily;
+  /** Short identifier a technician would recognise, e.g. "R", "C", "Q", "D", "U" */
+  schematicRef: string;
+  /** 1-2 sentence plain description of what the part does in a circuit */
+  summary: string;
+  /** Typical values / ratings encountered in real equipment */
+  typicalValues: string[];
+  /** How this part behaves when it fails — the core diagnostic knowledge */
+  failureModes: FailureMode[];
+  /** Bench procedures to confirm/deny failure */
+  tests: ComponentTest[];
+  /** Practical replacement / sourcing guidance */
+  replacementNotes: string;
+  /** Field wisdom: tricks, gotchas, and shortcuts that aren't in datasheets */
+  fieldNotes: string;
+  /** Related component ids for cross-navigation */
+  relatedIds?: string[];
+}
 
 export interface TestPoint {
   id: string;

@@ -22,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onTabChange, onOpenN
     { id: 'progress', label: 'Career & XP', icon: <Trophy className="w-4 h-4 text-amber-400" /> },
     { id: 'motor_rebuild', label: 'Motor Rebuild', icon: <RotateCw className="w-4 h-4" /> },
     { id: 'probes', label: 'Probes & Tools', icon: <Crosshair className="w-4 h-4" /> },
+    { id: 'components', label: 'Components', icon: <Cpu className="w-4 h-4" /> },
     { id: 'learning', label: 'Simulators', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'diagnostics', label: 'Trouble Trees', icon: <Activity className="w-4 h-4" /> },
     { id: 'hacks', label: 'Pro Secrets', icon: <Sparkles className="w-4 h-4" /> },

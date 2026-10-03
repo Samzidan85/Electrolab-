@@ -9,6 +9,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { RepairLabGame } from './components/game/RepairLabGame';
 import { ProbesExplorer } from './components/probes/ProbesExplorer';
+import { ComponentLibrary } from './components/components/ComponentLibrary';
 import { LearningHub } from './components/learning/LearningHub';
 import { DiagnosticTree } from './components/diagnostics/DiagnosticTree';
 import { ProHacks } from './components/hacks/ProHacks';
@@ -83,6 +84,7 @@ export default function App() {
         )}
         {currentTab === 'motor_rebuild' && <MotorRebuildLab />}
         {currentTab === 'probes' && <ProbesExplorer />}
+        {currentTab === 'components' && <ComponentLibrary />}
         {currentTab === 'learning' && <LearningHub />}
         {currentTab === 'diagnostics' && <DiagnosticTree />}
         {currentTab === 'hacks' && <ProHacks />}
