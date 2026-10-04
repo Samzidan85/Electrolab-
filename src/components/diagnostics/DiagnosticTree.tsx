@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 import { DIAGNOSTIC_DECISION_TREES } from '../../data/diagnosticData';
+import { DIAGNOSTIC_TREES_EXTRA } from '../../data/diagnosticDataExtra';
+
+/** Merge the extra decision trees into the original map (keyed by node id). */
+const ALL_DIAGNOSTIC_TREES = {
+  ...DIAGNOSTIC_DECISION_TREES,
+  ...DIAGNOSTIC_TREES_EXTRA.reduce<Record<string, (typeof DIAGNOSTIC_TREES_EXTRA)[number]>>(
+    (acc, node) => {
+      acc[node.id] = node;
+      return acc;
+    },
+    {}
+  ),
+};
 import { DiagnosticNode } from '../../types';
 import { Activity, ArrowRight, RotateCcw, AlertTriangle, Lightbulb, CheckCircle2, Wrench } from 'lucide-react';
 
@@ -16,7 +29,7 @@ export const DiagnosticTree: React.FC = () => {
     setHistory([]);
   };
 
-  const currentNode: DiagnosticNode = DIAGNOSTIC_DECISION_TREES[currentNodeId] || DIAGNOSTIC_DECISION_TREES['gen-root'];
+  const currentNode: DiagnosticNode = ALL_DIAGNOSTIC_TREES[currentNodeId] || ALL_DIAGNOSTIC_TREES['gen-root'];
 
   const handleSelectOption = (nextId?: string, resolution?: any) => {
     if (nextId) {

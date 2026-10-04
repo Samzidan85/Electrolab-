@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { QUIZ_QUESTIONS } from '../../data/quizData';
+import { QUIZ_QUESTIONS_EXTRA } from '../../data/quizDataExtra';
+
+const ALL_QUIZ_QUESTIONS = [...QUIZ_QUESTIONS, ...QUIZ_QUESTIONS_EXTRA];
 import { QuizQuestion } from '../../types';
 import { soundFx } from '../../utils/audio';
 import { usePlayerProgress } from '../../utils/progressStorage';
@@ -15,8 +18,8 @@ export const CertificationQuiz: React.FC = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
 
   const activeQuestions = selectedTier === 'All' 
-    ? QUIZ_QUESTIONS 
-    : QUIZ_QUESTIONS.filter(q => q.tier === selectedTier);
+    ? ALL_QUIZ_QUESTIONS 
+    : ALL_QUIZ_QUESTIONS.filter(q => q.tier === selectedTier);
 
   const currentQ: QuizQuestion = activeQuestions[currentIndex] || activeQuestions[0];
 

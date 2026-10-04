@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { PRO_HACKS } from '../../data/hacksData';
+import { PRO_HACKS_EXTRA } from '../../data/hacksDataExtra';
+
+const ALL_HACKS = [...PRO_HACKS, ...PRO_HACKS_EXTRA];
 import { ProHack } from '../../types';
 import { soundFx } from '../../utils/audio';
 import { useBenchNotes } from '../../utils/notesStorage';
@@ -9,7 +12,7 @@ export const ProHacks: React.FC = () => {
   const { addNote } = useBenchNotes();
   const [savedHackId, setSavedHackId] = useState<string | null>(null);
   const [selectedHackId, setSelectedHackId] = useState<string>('hack-rosin-smoke');
-  const selectedHack = PRO_HACKS.find(h => h.id === selectedHackId) || PRO_HACKS[0];
+  const selectedHack = ALL_HACKS.find(h => h.id === selectedHackId) || ALL_HACKS[0];
 
   // Interactive Demo 1: Rosin Smoke Simulator
   const [rosinInjected, setRosinInjected] = useState<boolean>(false);
@@ -50,7 +53,7 @@ export const ProHacks: React.FC = () => {
           <span className="text-xs font-mono text-slate-400 font-semibold block px-1 mb-2">
             SELECT BENCH SECRET:
           </span>
-          {PRO_HACKS.map((hack) => {
+          {ALL_HACKS.map((hack) => {
             const isSelected = hack.id === selectedHackId;
             return (
               <button

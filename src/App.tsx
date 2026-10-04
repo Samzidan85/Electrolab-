@@ -10,6 +10,7 @@ import { Hero } from './components/Hero';
 import { RepairLabGame } from './components/game/RepairLabGame';
 import { ProbesExplorer } from './components/probes/ProbesExplorer';
 import { ComponentLibrary } from './components/components/ComponentLibrary';
+import { GlobalSearch } from './components/search/GlobalSearch';
 import { LearningHub } from './components/learning/LearningHub';
 import { DiagnosticTree } from './components/diagnostics/DiagnosticTree';
 import { ProHacks } from './components/hacks/ProHacks';
@@ -85,6 +86,9 @@ export default function App() {
         {currentTab === 'motor_rebuild' && <MotorRebuildLab />}
         {currentTab === 'probes' && <ProbesExplorer />}
         {currentTab === 'components' && <ComponentLibrary />}
+        {currentTab === 'search' && (
+          <GlobalSearch onNavigate={(tab) => setCurrentTab(tab)} />
+        )}
         {currentTab === 'learning' && <LearningHub />}
         {currentTab === 'diagnostics' && <DiagnosticTree />}
         {currentTab === 'hacks' && <ProHacks />}

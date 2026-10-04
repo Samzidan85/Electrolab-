@@ -4,7 +4,7 @@ import { usePlayerProgress } from '../utils/progressStorage';
 import { PWAInstallButton } from './pwa/PWAInstallButton';
 import { 
   Wrench, Play, BookOpen, Activity, Sparkles, BookMarked, Calculator, 
-  Award, Cpu, Crosshair, Heart, Bookmark, Trophy, RotateCw, Zap 
+  Award, Cpu, Crosshair, Heart, Bookmark, Trophy, RotateCw, Zap, Search 
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -23,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onTabChange, onOpenN
     { id: 'motor_rebuild', label: 'Motor Rebuild', icon: <RotateCw className="w-4 h-4" /> },
     { id: 'probes', label: 'Probes & Tools', icon: <Crosshair className="w-4 h-4" /> },
     { id: 'components', label: 'Components', icon: <Cpu className="w-4 h-4" /> },
+    { id: 'search', label: 'Search', icon: <Search className="w-4 h-4" /> },
     { id: 'learning', label: 'Simulators', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'diagnostics', label: 'Trouble Trees', icon: <Activity className="w-4 h-4" /> },
     { id: 'hacks', label: 'Pro Secrets', icon: <Sparkles className="w-4 h-4" /> },

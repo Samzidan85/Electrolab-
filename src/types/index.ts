@@ -7,6 +7,7 @@ export type NavTab =
   | 'hacks'
   | 'probes'
   | 'components'
+  | 'search'
   | 'calculators'
   | 'reference'
   | 'quiz'

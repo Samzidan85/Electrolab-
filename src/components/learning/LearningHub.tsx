@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { LEARNING_TOPICS, LearningTopic } from '../../data/learningData';
+import { LEARNING_TOPICS_EXTRA } from '../../data/learningDataExtra';
+
+/** Original curated topics plus the expanded theory library. */
+const ALL_LEARNING_TOPICS: LearningTopic[] = [
+  ...LEARNING_TOPICS,
+  ...LEARNING_TOPICS_EXTRA,
+];
 import { 
   Zap, BookOpen, Layers, RotateCw, Activity, Compass, 
   Lightbulb, Sliders, CheckCircle2, ChevronRight 
@@ -53,7 +60,7 @@ export const LearningHub: React.FC = () => {
     ? '2.8'
     : (noLoadVolts - generatorLoadKw * 1.8 + (avrExcitationVolts - 38) * 1.2).toFixed(1);
 
-  const selectedTopic = LEARNING_TOPICS.find(t => t.id === activeTopicId) || LEARNING_TOPICS[0];
+  const selectedTopic = ALL_LEARNING_TOPICS.find(t => t.id === activeTopicId) || ALL_LEARNING_TOPICS[0];
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
@@ -548,7 +555,7 @@ export const LearningHub: React.FC = () => {
           <span className="text-xs font-mono text-slate-400 font-semibold block mb-2 px-1">
             TECHNICAL CHAPTERS
           </span>
-          {LEARNING_TOPICS.map((topic) => (
+          {ALL_LEARNING_TOPICS.map((topic) => (
             <button
               key={topic.id}
               onClick={() => setActiveTopicId(topic.id)}
